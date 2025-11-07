@@ -7,7 +7,12 @@ import {
   Spinner,
   Input,
   Flex,
-  Box
+  Box,
+  Stack,
+  SkeletonText,
+  SimpleGrid,
+  VStack,
+  SkeletonCircle
 } from '@chakra-ui/react';
 import UserList from '@/components/user/userlist';
 import { User } from '@/components/types/user';
@@ -71,10 +76,35 @@ const App: React.FC = () => {
       </Flex>
       
       {loading && (
-        <Center>
-          <Spinner />
-        </Center>
+          <SimpleGrid
+            columns={{ base: 0, md: 2, lg: 3 }}
+            spaceX={4}
+            spaceY={4}
+          >
+            {true && Array.from({ length: 6 }).map((_, index) => (
+              <Box
+                p={8}
+                margin={4}
+                borderWidth="1px"
+                borderRadius="lg"
+                boxShadow="md"
+                textAlign="center"
+                height="100%"
+                w={"100%"}
+                key={index}
+              >
+                <VStack>
+                  <SkeletonCircle size="10" />
+                  <SkeletonText noOfLines={4} />
+                </VStack>
+              </Box>
+
+            ))}
+          </SimpleGrid>
       )}
+
+
+
       {error && <ErrorAlert error={error} />}
       {!loading && !error && <UserList users={filteredUsers} />}
     </Container>

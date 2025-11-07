@@ -9,6 +9,10 @@ import {
   VStack,
   Spinner,
   Button,
+  Stack,
+  HStack,
+  SkeletonText,
+  Skeleton,
 } from '@chakra-ui/react';
 import { User } from '@/components/types/user';
 import ErrorAlert from '@/components/ui/alert';
@@ -39,10 +43,21 @@ const UserDetail: React.FC = () => {
     fetchUser();
   }, [params.id]);
 
+
   if (loading) {
     return (
-      <Container centerContent>
-        <Spinner />
+      <Container maxW="container.md" py={10}>
+        <Link href="/">
+          <Button mb={4}>Back to List</Button>
+        </Link>
+        <Stack gap="6" maxW="xs" mb={8}>
+          <SkeletonText noOfLines={1} />
+        </Stack>
+        <Box p={4} borderWidth={1} borderRadius="lg">
+          <Stack gap="6" maxW="xs">
+            <SkeletonText noOfLines={6} />
+          </Stack>
+        </Box>
       </Container>
     );
   }
@@ -56,6 +71,8 @@ const UserDetail: React.FC = () => {
       <Link href="/">
         <Button mb={4}>Back to List</Button>
       </Link>
+
+
       {user && (
         <VStack spaceX={4} spaceY={4} align="stretch">
           <Heading size="lg">{user.name}</Heading>
