@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
-:root {
+:root[data-theme="light"] {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  --text-primary: #000000;
+  --text-secondary: #4A5568;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root[data-theme="dark"] {
+  --background: #0e0e0e;
+  --foreground: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #A0AEC0;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: var(--text-primary);
   font-family: Arial, Helvetica, sans-serif;
+  transition: all 0.3s ease;
+}
+
+/* Add specific text color transitions for different elements */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+p, span, div {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+/* Add specific styles for Chakra UI components */
+.chakra-text {
+  color: var(--text-primary) !important;
+}
+
+.chakra-heading {
+  color: var(--text-primary) !important;
+}
+
+.chakra-input {
+  color: var(--text-primary) !important;
+  background-color: var(--background) !important;
+}
+
+.chakra-avatar__root {
+  color: var(--text-primary) !important;
+  background-color: var(--background) !important;
 }
