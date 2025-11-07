@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+USER LIST app
 
 ## Getting Started
 
@@ -20,17 +20,19 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Description
 
-To learn more about Next.js, take a look at the following resources:
+Design and implement a single-page React application that displays a list of users fetched
+from a public API. Candidates are permitted to utilize custom-built CSS, as well as React
+UI libraries such as Material UI, Chakra UI, and others.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This Project is for coding challenge with the following prerequisite:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Public API: https://jsonplaceholder.typicode.com/users
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. API Integration: Fetch a list of users from a public API.
+2. Display: Present the user list, including their names and other pertinent information.
+3. Search/Filter: Implement an input field that facilitates filtering of the displayed user list
+based on a text search.
+4. Profile Data Fetching: Display user details on the profile page (/user/:id) by
+fetching data from the public API.
